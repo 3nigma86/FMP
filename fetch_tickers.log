@@ -1,0 +1,6 @@
+2024-07-19 13:37:15 - INFO - Key metrics CSV downloaded.
+2024-07-19 13:37:15 - ERROR - Unexpected error: 'date'
+2024-07-19 13:45:56 - INFO - Key metrics CSV downloaded.
+2024-07-19 13:45:56 - ERROR - Unexpected error: no such table: key_metrics
+2024-07-19 13:49:16 - INFO - Key metrics CSV downloaded.
+2024-07-19 13:49:27 - INFO - Key metrics stored in the database.

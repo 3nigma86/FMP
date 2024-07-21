@@ -1,0 +1,461 @@
+Indicator LIST:
+
+NOTE: These are not called by API, these need to be calculated after all database is full. 
+[
+	"symbol" : "",
+    "TDV Volume" : "",
+    "relative_volume" : "",
+    "pvi_nvi" : "",
+    "nvi_pvi" : "",
+    "volume_divergence" : "",
+    "volume_momentum" : "",
+    "last_volume_momentum" : "",
+    "fv_per_share" : "",
+    "lv_per_share" : "",
+    "nv_per_share" : "",
+    "nv_eps_share" : "",
+    "nv_eps_growth_share" : "",
+    "ev_per_share" : "",
+    "graham_number" : "",
+    "revenue_growth_dif" : "",
+    "ohlson_o" : "",
+    "liab_assets" : "",
+
+]
+
+
+
+Generic Lists:
+https://financialmodelingprep.com/api/v3/sectors-list
+
+response:
+[
+  "Basic Materials",
+  "Communication Services",
+  "Consumer Cyclical",
+  "Consumer Defensive",
+  "Energy",
+  "Financial Services",
+  "Healthcare",
+  "Industrials",
+  "Real Estate",
+  "Technology",
+  "Utilities"
+]
+
+
+https://financialmodelingprep.com/api/v3/industries-list
+
+
+response:
+[
+	"Steel",
+	"Silver",
+	"Other Precious Metals",
+	"Gold",
+	"Copper",
+	"Aluminum",
+	"Paper, Lumber & Forest Products",
+	"Industrial Materials",
+	"Construction Materials",
+	"Chemicals - Specialty",
+	"Chemicals",
+	"Agricultural Inputs",
+	"Telecommunications Services",
+	"Internet Content & Information",
+	"Publishing",
+	"Broadcasting"
+]
+
+
+
+
+
+Historical Metrics:
+note: each one of these will return a list of several events, ones that are company specific have used AAPL as the example.
+
+https://financialmodelingprep.com/api/v4/ipo-calendar-confirmed?from=2021-11-10&to=2022-02-01
+notes: needs dates set to past week
+
+response:
+[
+	{
+		"symbol": "CETUU",
+		"cik": "0001936702",
+		"form": "CERT",
+		"filingDate": "2023-01-31",
+		"acceptedDate": "2023-01-31 15:04:42",
+		"effectivenessDate": "2023-01-31",
+		"url": "https://www.sec.gov/Archives/edgar/data/1936702/000135445723000056/8A_Cert_CETU.pdf"
+	}
+]
+
+
+Grouped Symbols:
+https://financialmodelingprep.com/api/v4/symbol_change
+Notes: need to migrate data in database to reflect changes
+response:
+[
+	{
+		"date": "2023-03-01",
+		"name": "Zevra Therapeutics, Inc. Common Stock",
+		"oldSymbol": "KMPH",
+		"newSymbol": "ZVRA"
+	}
+]
+
+
+https://financialmodelingprep.com/api/v3/delisted-companies
+
+
+response:
+[
+	{
+		"symbol": "GLCN",
+		"companyName": "VanEck China Growth Leaders ETF",
+		"exchange": "AMEX",
+		"ipoDate": "2010-10-14",
+		"delistedDate": "2023-09-21"
+	}
+]
+
+
+https://financialmodelingprep.com/api/v4/social-sentiments/change?type=bullish&source=stocktwits
+notes: needs to be ran for both bullish and bearish "type"
+
+response:
+[
+	{
+		"symbol": "NBTX",
+		"name": "Nanobiotix S.A.",
+		"rank": 1,
+		"sentiment": 21.4778,
+		"sentimentChange": 10209.3333
+	}
+]
+
+
+https://financialmodelingprep.com/api/v4/social-sentiments/trending?type=bullish&source=stocktwits
+notes: needs to be ran for both bullish and bearish "type"
+
+response:
+[
+	{
+		"symbol": "PNI",
+		"name": "PIMCO New York Municipal Income Fund II",
+		"rank": 1,
+		"sentiment": 100,
+		"lastSentiment": 13.3333
+	}
+]
+
+
+
+
+
+https://financialmodelingprep.com/api/v4/historical/shares_float?symbol=AAPL
+
+response = 
+[
+	{
+		"symbol": "AAPL",
+		"date": "2024-01-31",
+		"freeFloat": 99.9125,
+		"floatShares": "15448370837",
+		"outstandingShares": "15461900000",
+		"source": null
+	}
+]
+
+
+https://financialmodelingprep.com/api/v4/historical/employee_count?symbol=AAPL
+
+response = 
+[
+	{
+		"symbol": "AAPL",
+		"cik": "0000320193",
+		"acceptanceTime": "2022-10-27 18:01:14",
+		"periodOfReport": "2022-09-24",
+		"companyName": "Apple Inc.",
+		"formType": "10-K",
+		"filingDate": "2022-10-28",
+		"employeeCount": 164000,
+		"source": "https://www.sec.gov/Archives/edgar/data/320193/000032019322000108/0000320193-22-000108-index.htm"
+	}
+]
+
+https://financialmodelingprep.com/api/v3/analyst-stock-recommendations/AAPL
+
+response = 
+[
+	{
+		"symbol": "AAPL",
+		"date": "2023-08-01",
+		"analystRatingsbuy": 21,
+		"analystRatingsHold": 6,
+		"analystRatingsSell": 0,
+		"analystRatingsStrongSell": 0,
+		"analystRatingsStrongBuy": 11
+	}
+]
+
+https://financialmodelingprep.com/api/v3/analyst-estimates/AAPL
+
+response = 
+
+[
+	{
+		"symbol": "AAPL",
+		"date": "2023-12-31",
+		"estimatedRevenueLow": 338710374830,
+		"estimatedRevenueHigh": 508065562246,
+		"estimatedRevenueAvg": 423387968538,
+		"estimatedEbitdaLow": 110816277291,
+		"estimatedEbitdaHigh": 166224415938,
+		"estimatedEbitdaAvg": 138520346615,
+		"estimatedEbitLow": 99597027281,
+		"estimatedEbitHigh": 149395540924,
+		"estimatedEbitAvg": 124496284103,
+		"estimatedNetIncomeLow": 83849180538,
+		"estimatedNetIncomeHigh": 125773770810,
+		"estimatedNetIncomeAvg": 104811475674,
+		"estimatedSgaExpenseLow": 20384820993,
+		"estimatedSgaExpenseHigh": 30577231491,
+		"estimatedSgaExpenseAvg": 25481026242,
+		"estimatedEpsAvg": 6.01,
+		"estimatedEpsHigh": 7.209999999999999,
+		"estimatedEpsLow": 4.81,
+		"numberAnalystEstimatedRevenue": 12,
+		"numberAnalystsEstimatedEps": 12
+	}
+]
+
+https://financialmodelingprep.com/api/v4/upgrades-downgrades?symbol=AAPL
+
+response = 
+[
+	{
+		"symbol": "AAPL",
+		"publishedDate": "2023-09-12T10:48:00.000Z",
+		"newsURL": "https://www.benzinga.com/analyst-ratings/analyst-color/23/09/34490640/apple-wonderlust-iphone-15-event-will-reveal-shift-to-premium-products-analyst",
+		"newsTitle": "Apple 'Wonderlust' iPhone 15 Event Will Reveal Shift To Premium Products: Analyst",
+		"newsBaseURL": "benzinga.com",
+		"newsPublisher": "Benzinga",
+		"newGrade": "Neutral",
+		"previousGrade": "Neutral",
+		"gradingCompany": "Rosenblatt Securities",
+		"action": "hold",
+		"priceWhenPosted": 176.6009
+	}
+]
+
+
+
+
+https://financialmodelingprep.com/api/v3/grade/AAPL
+
+response = 
+[
+	{
+		"symbol": "AAPL",
+		"date": "2023-02-03",
+		"gradingCompany": "Cowen & Co.",
+		"previousGrade": "Outperform",
+		"newGrade": "Outperform"
+	}
+]
+
+
+https://financialmodelingprep.com/api/v4/price-target?symbol=AAPL
+
+response = 
+[
+	{
+		"symbol": "AAPL",
+		"publishedDate": "2023-09-18T02:36:00.000Z",
+		"newsURL": "https://www.benzinga.com/analyst-ratings/analyst-color/23/09/34673717/apple-analyst-says-iphone-15-pro-pro-max-preorders-strong-out-of-the-gates-increasi",
+		"newsTitle": "Apple Analyst Says iPhone 15 Pro, Pro Max Preorders Strong Out Of The Gates, Increasing Confidence In Estimates For Holiday Quarter",
+		"analystName": "Daniel Ives",
+		"priceTarget": 240,
+		"adjPriceTarget": 240,
+		"priceWhenPosted": 175.01,
+		"newsPublisher": "Benzinga",
+		"newsBaseURL": "benzinga.com",
+		"analystCompany": "Wedbush"
+	}
+]
+
+https://financialmodelingprep.com/api/v3/stock_news?tickers=AAPL&page=50&from=2024-01-01&to=2024-03-01
+notes: Will need to go back and get all news for each stock.  Page limit = 50 so will have to devise an algorithm that gathers all news.  
+
+response = 
+[
+	{
+		"symbol": "AAPL",
+		"publishedDate": "2024-02-28 05:55:00",
+		"title": "Missed Out on Apple? Buy This Essential Supplier Instead",
+		"image": "https://cdn.snapi.dev/images/v1/0/q/apple-macbook-pro-15-inch-2015-2297874.jpg",
+		"site": "fool.com",
+		"text": "Consumer electronics companies, including Apple, are obliged to invest in new products and, in turn, their production lines. This technology company's solutions help improve manufacturing quality and productivity.",
+		"url": "https://www.fool.com/investing/2024/02/28/missed-out-on-apple-buy-this-essential-supplier-in/"
+	}
+]
+
+
+
+https://financialmodelingprep.com/api/v3/historical-rating/AAPL
+
+response = 
+
+[
+	{
+		"symbol": "AAPL",
+		"date": "2023-03-01",
+		"rating": "S",
+		"ratingScore": 5,
+		"ratingRecommendation": "Strong Buy",
+		"ratingDetailsDCFScore": 5,
+		"ratingDetailsDCFRecommendation": "Strong Buy",
+		"ratingDetailsROEScore": 5,
+		"ratingDetailsROERecommendation": "Strong Buy",
+		"ratingDetailsROAScore": 3,
+		"ratingDetailsROARecommendation": "Neutral",
+		"ratingDetailsDEScore": 5,
+		"ratingDetailsDERecommendation": "Strong Buy",
+		"ratingDetailsPEScore": 5,
+		"ratingDetailsPERecommendation": "Strong Buy",
+		"ratingDetailsPBScore": 5,
+		"ratingDetailsPBRecommendation": "Strong Buy"
+	}
+]
+
+
+
+https://financialmodelingprep.com/api/v4/historical/social-sentiment?symbol=AAPL&page=0
+notes: recieves more than one page as well need to loop through pages until we do not get a response
+
+
+response = 
+[
+	{
+		"date": "2022-06-30 23:00:00",
+		"symbol": "AAPL",
+		"stocktwitsPosts": 13,
+		"twitterPosts": 163,
+		"stocktwitsComments": 9,
+		"twitterComments": 7769,
+		"stocktwitsLikes": 16,
+		"twitterLikes": 40957,
+		"stocktwitsImpressions": 15141,
+		"twitterImpressions": 1576854,
+		"stocktwitsSentiment": 0.5411,
+		"twitterSentiment": 0.5888
+	}
+]
+
+
+
+
+https://financialmodelingprep.com/api/v4/senate-trading?symbol=AAPL
+
+response = 
+[
+	{
+		"firstName": "Daniel S",
+		"lastName": "Sullivan",
+		"office": "Sullivan, Dan (Senator)",
+		"link": "https://efdsearch.senate.gov/search/view/ptr/f9252211-a695-4c37-869a-0e223fce8d88/",
+		"dateRecieved": "2023-09-21",
+		"transactionDate": "2023-08-22",
+		"owner": "Joint",
+		"assetDescription": "Apple Inc",
+		"assetType": "Stock",
+		"type": "Sale (Full)",
+		"amount": "$15,001 - $50,000",
+		"comment": "Sale part of investment strategy of 3rd party investment professional to exchange individual stocks received after death of filer’s parents for EIFs.",
+		"symbol": "AAPL"
+	}
+]
+
+
+
+https://financialmodelingprep.com/api/v4/senate-disclosure?symbol=AAPL
+
+
+response = 
+[
+	{
+		"disclosureYear": "2023",
+		"disclosureDate": "2023-08-23",
+		"transactionDate": "2023-08-07",
+		"owner": "self",
+		"ticker": "AAPL",
+		"assetDescription": "Apple Inc.",
+		"type": "purchase",
+		"amount": "$1,001 - $15,000",
+		"representative": "Michael Patrick Guest",
+		"district": "MS03",
+		"link": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2023/20023442.pdf",
+		"capitalGainsOver200USD": "False"
+	}
+]
+
+
+
+https://financialmodelingprep.com/api/v4/commitment_of_traders_report_analysis/M6
+note : m6 had to be used as example here.
+response = 
+[
+	{
+		"symbol": "M6",
+		"date": "2022-08-23 00:00:00",
+		"sector": "CURRENCIES",
+		"currentLongMarketSituation": 0.43,
+		"currentShortMarketSituation": 0.57,
+		"marketSituation": "Bearish",
+		"previousLongMarketSituation": 0.46,
+		"previousShortMarketSituation": 0.55,
+		"previousMarketSituation": "Bearish",
+		"netPostion": -31316,
+		"previousNetPosition": -21371,
+		"changeInNetPosition": 0,
+		"marketSentiment": "Bearish",
+		"reversalTrend": false,
+		"name": "Mexican Peso (M6)",
+		"exchange": "MEXICAN PESO - CHICAGO MERCANTILE EXCHANGE"
+	}
+]
+
+
+
+
+
+
+Bulks:
+note: All API's in this section return a CSV that need to be read and pulled into the database after the download.  
+https://financialmodelingprep.com/api/v4/ratios-ttm-bulk
+https://financialmodelingprep.com/api/v4/rating-bulk
+https://financialmodelingprep.com/api/v4/stock_peers_bulk
+https://financialmodelingprep.com/api/v4/scores-bulk
+https://financialmodelingprep.com/api/v4/earnings-surprises-bulk
+https://financialmodelingprep.com/api/v4/stock_peers_bulk
+https://financialmodelingprep.com/api/v4/dcf-bulk
+https://financialmodelingprep.com/api/v4/profile/all
+https://financialmodelingprep.com/api/v4/price-target-summary-bulk
+https://financialmodelingprep.com/api/v4/upgrades-downgrades-consensus-bulk
+https://financialmodelingprep.com/api/v4/etf-holder-bulk
+
+
+NOTE: Following Bulk apis need to be set for last 2 years and quarterly data
+https://financialmodelingprep.com/api/v4/financial-growth-bulk?year=2020&period=quarter
+https://financialmodelingprep.com/api/v4/income-statement-bulk?year=2020&period=quarter
+https://financialmodelingprep.com/api/v4/balance-sheet-statement-bulk?year=2020&period=quarter
+https://financialmodelingprep.com/api/v4/cash-flow-statement-bulk?year=2020&period=quarter
+https://financialmodelingprep.com/api/v4/ratios-bulk?year=2020&period=quarter
+https://financialmodelingprep.com/api/v4/key-metrics-bulk?year=2020&period=quarter
+https://financialmodelingprep.com/api/v4/income-statement-growth-bulk?year=2020&period=quarter
+https://financialmodelingprep.com/api/v4/balance-sheet-statement-growth-bulk?year=2020&period=quarter
+https://financialmodelingprep.com/api/v4/cash-flow-statement-growth-bulk?year=2020&period=quarter
+
+
